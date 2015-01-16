@@ -2,7 +2,7 @@ import requests
 import os
 import time
 
-##json.loads()
+## for urllib2 json importing line would be json.loads(), must also import json
 
 resp = requests.get("https://api.bitcoinaverage.com/ticker/USD/")
 f = resp.json()
@@ -13,6 +13,7 @@ while True:
 	g = resp.json()
 	price = g['last']
 	if price > oldprice * 1.05:
+		## for terminal ping, next line would be print('/a')
 		os.system('say "alert bitcoin price up to %d dollars from %d "' % (price, oldprice))
 		oldprice = price
 	elif price < oldprice * .95:
